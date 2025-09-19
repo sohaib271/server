@@ -1,0 +1,1 @@
+{"version":3,"file":"authClass.d.ts","sourceRoot":"","sources":["../../src/controller/authClass.ts"],"names":[],"mappings":"AAAA,OAAO,GAAmB,MAAM,cAAc,CAAA;AAI9C,cAAM,UAAU;IACR,QAAQ,CAAC,EAAE,EAAC,MAAM;;;;;;;;;;IAGlB,mBAAmB,CAAC,EAAE,EAAC,MAAM;IAY7B,oBAAoB,CAAC,EAAE,EAAC,MAAM;IAWpC,WAAW,CAAC,KAAK,EAAC,MAAM;CAOzB;AAED,eAAO,MAAM,IAAI,YAAiB,CAAC"}
