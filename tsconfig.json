@@ -5,7 +5,7 @@
     "outDir": "./dist",
 
     // Environment Settings
-    "module": "NodeNext",          // Best for modern Node (ESM or CommonJS)
+    "module": "commonjs",          // Best for modern Node (ESM or CommonJS)
     "target": "ES2022",            // Matches recent Node versions
     "lib": ["ES2022"],             // Modern JS APIs
     "types": ["node"],             // Enable Node.js types
