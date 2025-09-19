@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Environment Settings
+    "module": "NodeNext",          // Best for modern Node (ESM or CommonJS)
+    "target": "ES2022",            // Matches recent Node versions
+    "lib": ["ES2022"],             // Modern JS APIs
+    "types": ["node"],             // Enable Node.js types
+
+    // Output Helpers
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Type Checking
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options (you can enable more if you like)
+    // "noImplicitReturns": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+
+    // Module & Import Behavior
+    "esModuleInterop": true,       // Makes `import express from "express"` work
+    "verbatimModuleSyntax": false, // Looser imports (safer for Node)
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
+

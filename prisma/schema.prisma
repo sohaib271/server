@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+model User {
+  id           Int        @id @default(autoincrement())
+  name         String
+  email        String     @unique
+  password     String?
+  created_at   DateTime   @default(now())
+  role         String     @default("Customer")
+  image        String?
+  refreshToken String?
+  bookings     Bookings[]
+  review       Review[]
+}
+
+model Items {
+  id          Int           @id @default(autoincrement())
+  item_name   String
+  description String
+  price       String
+  item_image  String
+  bookings    BookingItem[]
+}
+
+model Bookings {
+  id            Int           @id @default(autoincrement())
+  booked_at     DateTime      @default(now())
+  booked_by     Int
+  status        String        @default("Reserved")
+  reserved_to   String
+  table_no      Int
+  isNotified    Boolean       @default(false)
+  reserved_from DateTime
+  items         BookingItem[]
+  user          User          @relation(fields: [booked_by], references: [id])
+  review        Review?
+}
+
+model BookingItem {
+  id         Int      @id @default(autoincrement())
+  booking_id Int
+  item_id    Int
+  quantity   Int      @default(1)
+  booking    Bookings @relation(fields: [booking_id], references: [id])
+  item       Items    @relation(fields: [item_id], references: [id])
+}
+
+model Review {
+  id          Int      @id @default(autoincrement())
+  review_text String?
+  rating      Int
+  reviewed_at DateTime @default(now())
+  reviewed_by Int
+  booking_id  Int      @unique
+  bookings    Bookings @relation(fields: [booking_id], references: [id])
+  user        User     @relation(fields: [reviewed_by], references: [id])
+}
