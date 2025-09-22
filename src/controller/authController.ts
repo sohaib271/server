@@ -30,7 +30,7 @@ async function googleLogin(req:any,res:any){
 
     const options={
       httpOnly:true,
-      secure:false
+      secure:true
     }
 
     let userInfo={id:user.id, name:name,email:email,image:picture,role:user.role};
@@ -44,7 +44,7 @@ async function googleLogin(req:any,res:any){
 async function refreshAccessToken(req:any,res:any){
     const options={
     httpOnly:true,
-    secure:false
+    secure:true
   };
   const userId=req.params.id;
   const refreshToken=req.cookies.refreshToken;
@@ -79,7 +79,7 @@ async function logOut(req:Request <AuthParams>,res:any){
 
     const options={
       httpOnly:true,
-      secure:false,
+      secure:true,
     }
 
     return res.status(200).clearCookie("accessToken",options).clearCookie("refreshToken",options).json({msg:"Log out successful"});
